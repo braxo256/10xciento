@@ -21,7 +21,8 @@ pipeline {
 
          stage('Test NewMan') {
             steps {
-                sh "newman run mindicador.postman_collection.json"
+                sh "npm install -g newman"
+                sh "newman run mindicador.postman_collection.json --disable-unicode" 
             }
         }
     }
