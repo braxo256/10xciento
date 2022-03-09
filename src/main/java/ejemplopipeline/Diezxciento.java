@@ -1,5 +1,7 @@
 package ejemplopipeline;
 
+import java.text.DecimalFormat;
+
 public class Diezxciento {
 	
 	public int ahorro;
@@ -17,7 +19,7 @@ public class Diezxciento {
 	
 	public int diezxciento(){
 		double diezxciento = ahorro * 0.1;
-		System.out.println(diezxciento);
+		System.out.println("Diez porciento: "+ diezxciento);
 		return (int) diezxciento;
 	}
 	
@@ -31,8 +33,11 @@ public class Diezxciento {
 			inpuesto = 0.135f;
 		}
 		
-		System.out.println("Sueldo Anual: "+sueldoAnual); 
-		System.out.println("Inpuesto"+inpuesto); 
+		DecimalFormat formato = new DecimalFormat("#,###.##");
+		String valorFormateado = formato.format(sueldoAnual);
+
+		System.out.println("Sueldo Anual: "+ valorFormateado); 
+		System.out.println("Inpuesto: "+ inpuesto); 
 		return inpuesto;
 	}
 	
