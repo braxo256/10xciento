@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "5b8b5778-874d-497f-b99f-6ecf4e055be1",
+		"name": "mindicador.cl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IndicadorUF",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 3000ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"fomento\");",
+							"});",
+							"",
+							"pm.test(\"Imprimir codigo\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    let codigo = jsonData.codigo;",
+							"    console.log(codigo);",
+							"});",
+							"",
+							"pm.test(\"ETag esta presente en la cabecera de la respuesta\", function () {",
+							"    pm.response.to.have.header(\"ETag\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mindicador.cl/api/uf",
+					"protocol": "https",
+					"host": [
+						"mindicador",
+						"cl"
+					],
+					"path": [
+						"api",
+						"uf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EndpointJsonPlaceHolder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tiempo menos a 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Codigo de respuesta dentro de lo esperado\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202,200]);",
+							"});",
+							"",
+							"pm.test(\"String encontrado en el body\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"laudantium enim quasi est quidem magnam voluptate ipsam eos\");",
+							"});",
+							"",
+							"pm.test(\"Age esta presente en la cabecera de la respuesta\", function () {",
+							"    pm.response.to.have.header(\"age\");",
+							"});",
+							"",
+							"pm.test(\"String de respuesta esperado\", function () {",
+							"    pm.response.to.have.status(\"OsK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/comments",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
