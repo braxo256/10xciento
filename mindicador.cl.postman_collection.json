@@ -64,7 +64,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Tiempo menos a 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 							"});",
 							"",
 							"pm.test(\"Codigo de respuesta dentro de lo esperado\", function () {",
@@ -80,7 +80,7 @@
 							"});",
 							"",
 							"pm.test(\"String de respuesta esperado\", function () {",
-							"    pm.response.to.have.status(\"OsK\");",
+							"    pm.response.to.have.status(\"OK\");",
 							"});"
 						],
 						"type": "text/javascript"
